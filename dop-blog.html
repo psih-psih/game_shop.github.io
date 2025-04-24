@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style-foter.css">
+    <style>
+       .container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background: #ffffff3d;
+    color: #000000;
+    padding: 20px;
+    position: absolute;
+    left: 200px;
+    top: 70px;
+    transform: translateX(-50%); /* Центрируем кнопку по горизонтали */
+    padding: 15px 30px; /* Добавляем внутренние отступы для кнопки */
+    border: none; /* Убираем границу у кнопки */
+    cursor: pointer; /* Меняем курсор на указатель, когда наводим на кнопку */
+    border-radius: 5px; /* Закругляем углы кнопки */
+}
+
+.sidebar h2 {
+    font-size: 1.5em;
+    color :white;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    color : white;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    color :white;
+}
+
+.sidebar ul li:hover {
+    background: #000000;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.section {
+    margin-bottom: 20px;
+    color: white;
+}
+input {
+    position: absolute;
+    top : 80px;
+    left: 1800px;
+    background-color: #ff0000;
+    color: white;padding: 10px;
+    font-size: 16px;border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html">Game Shop</a>
+        </div>
+
+      <!-- Account section -->
+        <div class="account" id="account-section">
+            <a href="dop-login.html" id="login-btn" class="login-btn">Вход / Регистрация</a>
+            <span id="user-info" style="display: none;">Привет, <span id="user-name"></span>
+            <button style=" background-color: #f39c12;color: white;padding: 10px;font-size: 16px;border: none;cursor: pointer;border-radius: 5px;" onclick="logout()">Выйти</button></span>
+        </div>
+    </header>
+    <input id="input" type="button" onclick="history.back();" value="Назад"/>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Названия</h2>
+            <ul>
+                <li onclick="showSection('section1')">Clash of Clans</li>
+                <li onclick="showSection('section2')">Brawl Stars</li>
+                <li onclick="showSection('section3')">Clash Royale</li>
+                <li onclick="showSection('section4')">Steam</li>
+                <li onclick="showSection('section5')">Spotify Premium</li>
+                <li onclick="showSection('section6')">Discord Nitro</li>
+                <li onclick="showSection('section7')">Valorant</li>
+                <li onclick="showSection('section8')">Roblox</li>
+                <li onclick="showSection('section9')">Fortnite</li>
+            </ul>
+        </aside>
+        <main class="content">
+            <div id="section1" class="section">
+                <h2>Статья 1</h2>
+                <p>Это текст по теме первой статьи.</p>
+            </div>
+            <div id="section2" class="section" style="display: none;">
+                <h2>Статья 2</h2>
+                <p>Это текст по теме второй статьи.</p>
+            </div>
+            <div id="section3" class="section" style="display: none;">
+                <h2>Статья 3</h2>
+                <p>Это текст по теме третьей статьи.</p>
+            </div>
+            <div id="section4" class="section" style="display: none;">
+                <h2>Статья 4</h2>
+                <p>Это текст по теме статьи.</p>
+            </div>
+            <div id="section5" class="section" style="display: none;">
+                <h2>Статья 5</h2>
+                <p>Это текст по теме статьи.</p>
+            </div>
+            <div id="section6" class="section" style="display: none;">
+                <h2>Статья 6</h2>
+                <p>Это текст по теме статьи.</p>
+            </div>
+            <div id="section7" class="section" style="display: none;">
+                <h2>Статья 7</h2>
+                <p>Это текст по теме статьи.</p>
+            </div>
+            <div id="section8" class="section" style="display: none;">
+                <h2>Статья 8</h2>
+                <p>Это текст по теме статьи.</p>
+            </div>
+            <div id="section9" class="section" style="display: none;">
+                <h2>Статья 9</h2>
+                <p>Это текст по теме статьи.</p>
+            </div>
+        </main>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <footer>
+        <div class="container-footer w-container">
+            <div class="w-row">
+              <div class="footer-column w-clearfix w-col w-col-4"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/596d33f36607b12cfdaf8ad2_LogoWhite.png" alt="" width="40" class="failory-logo-image">
+                <h3 class="footer-failory-name">Game Shop</h3>
+                <p class="footer-description-failory">Для настоящих геймеров<br></p>
+              </div>
+              <div class="footer-column w-col w-col-8">
+                <div class="w-row">
+                  <div class="w-col w-col-8">
+                    <div class="w-row">
+                      <div class="w-col w-col-7 w-col-small-6 w-col-tiny-7">
+                        <p class="footer-links">
+                            <a href="dop-blog.html" target="_self"><span class="footer-link">Блог<br></span></a>
+                            <a href="dop-instruction.html"><span class="footer-link">Политика<br></span></a>
+                            <a href="dop-instruction.html"><span class="footer-link">Конфиденциальность</span></a><span><br></span>
+                            <a href=""><span class="footer-link">3<br></span></a>
+                            <a href=""><span class="footer-link">4<br></span></a>
+                            <a href=""><span class="footer-link">5</span></a><strong><br></strong>
+                        </p>
+                      </div>
+                      <div class="w-col w-col-5 w-col-small-6 w-col-tiny-5">
+                        <p class="footer-links">
+                            <a href="dop-FAQ.html"><span class="footer-link">FAQ<br></span></a>
+                            <a href="https://t.me/What_sait_bot"><span class="footer-link">Поддержка<br></span></a><a href=""><span class="footer-link"></span></a>
+                            <a href=""><span class="footer-link">2<br></span></a>
+                            <a href=""><span class="footer-link">3</span></a><strong><br></strong>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="column-center-mobile w-col w-col-4">
+                    <a href="dop-erore.html" target="_self" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dbf0a2f2b67e3b3ba079c_Twitter%20Icon.svg" width="20" alt="Twitter icon"></a>
+                    <a href="dop-erore.html" target="_self" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dbfe70fcf5a0514c5b1da_Instagram%20Icon.svg" width="20" alt="Instagram icon"></a>
+                    <a href="dop-erore.html" target="_self" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dbe42e1e6034fdaba46f6_Facebook%20Icon.svg" width="20" alt="Facebook Icon"></a>
+                    <a href="dop-erore.html" target="_self" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dc0002f2b676eb4ba0869_LinkedIn%20Icon.svg" width="20" alt="LinkedIn Icon"></a>
+                    <a href="dop-erore.html" target="_self" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dc0112f2b6739c9ba0871_Pinterest%20Icon.svg" width="20" alt="Pinterest Icon"></a>
+                    <p class="footer-description">Email: <a href=""><strong class="link-email-footer">support@game.shop</strong></a><br></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <section class="sponsors">
+            <h3>Наши спонсоры</h3>
+            <div class="sponsor-promo">
+                <div class="promo-item">
+                    <p>промо:GS</p>
+                    <img src="https://gamer.market/wp-content/uploads/2025/01/sb-logo-1-1024x344.png" alt="Картинка 1">
+                </div>
+                <div class="promo-item">
+                    <p>промо:GS</p>
+                    <img src="https://gamer.market/wp-content/uploads/2025/02/aim.market-1-1024x204.png" alt="Картинка 2">
+                </div>
+            </div>
+            <br>
+        </section>
+                </footer>
+        
+        <script src="script.js"></script>
+        <script>
+            function showSection(sectionId) {
+    // Скрыть все секции
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+
+    // Показать только нажатую секцию
+    const activeSection = document.getElementById(sectionId);
+    activeSection.style.display = 'block';
+}
+        </script>
+        </body>
+        </html>
+        

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Shop</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style-foter.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+        <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html">Game Shop</a>
+        </div>
+
+      <!-- Account section -->
+        <div class="account" id="account-section">
+            <a href="dop-login.html" id="login-btn" class="login-btn">Вход / Регистрация</a>
+            <span id="user-info" style="display: none;">Привет, <span id="user-name"></span> <button style=" background-color: #f39c12;color: white;padding: 10px;font-size: 16px;border: none;cursor: pointer;border-radius: 5px;" onclick="logout()">Выйти</button></span>
+        </div>
+    </header>
+    <style> 
+/* Сброс отступов и внутреннего отступа у всех элементов */
+* {
+    margin: 0; /* Убираем внешние отступы у всех элементов */
+    padding: 0; /* Убираем внутренние отступы у всех элементов */
+    box-sizing: border-box; /* Устанавливаем, чтобы ширина и высота элементов включали внутренние отступы и границы */
+}
+
+/* Настройка стилей для <body> и <html> */
+body, html {
+    height: 100%; /* Задаем высоту 100% для <body> и <html>, чтобы элементы, вложенные в них, могли использовать всю высоту экрана */
+    font-family: Arial, sans-serif; /* Устанавливаем шрифт для всего документа */
+}
+
+/* Контейнер, который будет использовать flexbox для размещения элементов */
+.container {
+    display: flex; /* Включаем Flexbox для контейнера */
+    height: 100%; /* Задаем высоту 100%, чтобы контейнер занимал всю высоту экрана */
+}
+
+/* Левая часть контейнера */
+.left {
+    width: 50%; /* Задаем ширину левой части 50% от контейнера */
+    position: relative; /* Устанавливаем относительное позиционирование для правильного позиционирования вложенных элементов */
+}
+
+/* Изображение внутри левой части */
+.image {
+    position: absolute; /* Абсолютное позиционирование для изображения */
+    top: 200px; /* Отступ сверху от родительского контейнера */
+    left: 50%; /* Позиционируем изображение по центру по горизонтали */
+    transform: translateX(-50%); /* Центрируем изображение по горизонтали */
+    width: 100%; /* Задаем ширину изображения 100% от его контейнера */
+    max-width: 500px; /* Ограничиваем максимальную ширину изображения 500px */
+    height: auto; /* Высота изображения будет автоматически адаптироваться */
+}
+
+/* Правая часть контейнера */
+.right {
+    width: 50%; /* Задаем ширину правой части 50% от контейнера */
+    position: relative; /* Устанавливаем относительное позиционирование для правой части */
+    padding-left: 20px; /* Добавляем внутренний отступ слева */
+}
+
+/* Абсолютное позиционирование для вложенных блоков внутри правой части */
+.right div {
+    position: absolute; /* Абсолютное позиционирование для вложенных блоков */
+    left: 50%; /* Позиционируем блок по центру по горизонтали */
+    transform: translateX(-50%); /* Центрируем блок по горизонтали */
+}
+
+/* Стиль для блока с классом "yes" */
+.yes {
+    top: 200px; /* Отступ сверху для блока "yes" */
+}
+
+/* Стиль для заголовка внутри блока "yes" */
+.yes h1 {
+    font-size: 48px; /* Устанавливаем размер шрифта для заголовка */
+    text-transform: uppercase; /* Преобразуем текст в верхний регистр */
+}
+
+/* Стиль для параграфа внутри блока "yes" */
+.yes p {
+    font-size: 24px; /* Устанавливаем размер шрифта для параграфа */
+}
+
+/* Стиль для блока с классом "no" */
+.no {
+    top: 400px; /* Отступ сверху для блока "no" */
+}
+
+/* Стиль для заголовка внутри блока "no" */
+.no h2 {
+    font-size: 12px; /* Устанавливаем размер шрифта для заголовка */
+    text-transform: uppercase; /* Преобразуем текст в верхний регистр */
+}
+
+/* Стиль для кнопки покупки */
+.buy-btn {
+    position: absolute; /* Абсолютное позиционирование для кнопки */
+    top: 600px; /* Отступ сверху для кнопки */
+    left: 50%; /* Позиционируем кнопку по центру по горизонтали */
+    transform: translateX(-50%); /* Центрируем кнопку по горизонтали */
+    padding: 15px 30px; /* Добавляем внутренние отступы для кнопки */
+    font-size: 18px; /* Устанавливаем размер шрифта для текста на кнопке */
+    background-color: #4CAF50; /* Устанавливаем зеленый цвет фона кнопки */
+    color: white; /* Устанавливаем белый цвет текста */
+    border: none; /* Убираем границу у кнопки */
+    cursor: pointer; /* Меняем курсор на указатель, когда наводим на кнопку */
+    border-radius: 5px; /* Закругляем углы кнопки */
+}
+
+/* Стиль для кнопки при наведении */
+.buy-btn:hover {
+    background-color: #45a049; /* Меняем цвет фона кнопки при наведении */
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="img/1.jpg" alt="Картинка" class="image">
+        </div>
+        <div class="right">
+            <div class="yes">
+                <h1 style="color: white;">Brawl Stars</h1>
+                <p style="color: white;">от 219 ₽</p>
+            </div>
+            <div class="no">
+                <h2 style="color: white;">Дешевая внутриигровая валюта и пропуск для Brawl Stars! Покупка осуществляется через официальный магазин, никаких сторонних программ и читов. Для получения необходимо пустить оператора в аккаунт для покупки доната!</h2>
+            </div>
+            <a href="pay-brawl-stars.html"><button class="buy-btn">Купить</button></a>
+        </div>
+    </div>
+    <footer>
+        <div class="container-footer w-container">
+            <div class="w-row">
+              <div class="footer-column w-clearfix w-col w-col-4"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/596d33f36607b12cfdaf8ad2_LogoWhite.png" alt="" width="40" class="failory-logo-image">
+                <h3 class="footer-failory-name">Game Shop</h3>
+                <p class="footer-description-failory">Для настоящих геймеров<br></p>
+              </div>
+              <div class="footer-column w-col w-col-8">
+                <div class="w-row">
+                  <div class="w-col w-col-8">
+                    <div class="w-row">
+                      <div class="w-col w-col-7 w-col-small-6 w-col-tiny-7">
+                        <p class="footer-links">
+                            <a href="dop-blog.html" target="_self"><span class="footer-link">Блог<br></span></a>
+                            <a href=""><span class="footer-link">1<br></span></a>
+                            <a href="dop-instruction.html"><span class="footer-link">Конфиденциальность</span></a><span><br></span>
+                            <a href="dop-instruction.html"><span class="footer-link">Политика<br></span></a>
+                            <a href=""><span class="footer-link">4<br></span></a>
+                            <a href=""><span class="footer-link">5</span></a><strong><br></strong>
+                        </p>
+                      </div>
+                      <div class="w-col w-col-5 w-col-small-6 w-col-tiny-5">
+                        <p class="footer-links">
+                            <a href="dop-FAQ.html"><span class="footer-link">FAQ<br></span></a>
+                            <a href="https://t.me/What_sait_bot"><span class="footer-link">Поддержка<br></span></a><a href=""><span class="footer-link"></span></a>
+                            <a href="dop-blog.html"><span class="footer-link">Новости<br></span></a>
+                            <a href=""><span class="footer-link">3</span></a><strong><br></strong>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="column-center-mobile w-col w-col-4">
+                    <a href="dop-erore.html" target="_self" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dbf0a2f2b67e3b3ba079c_Twitter%20Icon.svg" width="20" alt="Twitter icon"></a>
+                    <a href="dop-erore.html" target="_self" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dbfe70fcf5a0514c5b1da_Instagram%20Icon.svg" width="20" alt="Instagram icon"></a>
+                    <a href="dop-erore.html" target="_self" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dbe42e1e6034fdaba46f6_Facebook%20Icon.svg" width="20" alt="Facebook Icon"></a>
+                    <a href="dop-erore.html" target="_self" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dc0002f2b676eb4ba0869_LinkedIn%20Icon.svg" width="20" alt="LinkedIn Icon"></a>
+                    <a href="dop-erore.html" target="_self" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dc0112f2b6739c9ba0871_Pinterest%20Icon.svg" width="20" alt="Pinterest Icon"></a>
+                    <p class="footer-description">Email: <a href=""><strong class="link-email-footer">support@game.shop</strong></a><br></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <section class="sponsors">
+            <h3>Наши спонсоры</h3>
+            <div class="sponsor-promo">
+                <div class="promo-item">
+                    <p>промо:GS</p>
+                    <img src="https://gamer.market/wp-content/uploads/2025/01/sb-logo-1-1024x344.png" alt="Картинка 1">
+                </div>
+                <div class="promo-item">
+                    <p>промо:GS</p>
+                    <img src="https://gamer.market/wp-content/uploads/2025/02/aim.market-1-1024x204.png" alt="Картинка 2">
+                </div>
+            </div>
+            <br>
+        </section>
+                </footer>
+        
+
+    <script src="script.js"></script>
+</body>
+</html>

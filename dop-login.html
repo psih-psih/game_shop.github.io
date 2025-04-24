@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Вход / Регистрация</title>
+    <script type="script.js"></script>
+    <style>
+ /* Основные стили страницы */
+body.body-login {
+    font-family: 'Arial', sans-serif; /* Устанавливаем шрифт страницы на Arial (или sans-serif, если Arial недоступен) */
+    background-color: black; /* Устанавливаем черный фон для страницы */
+    margin: 0; /* Убираем внешние отступы у body */
+    padding: 0; /* Убираем внутренние отступы у body */
+    display: flex; /* Используем Flexbox для удобного выравнивания контента */
+    justify-content: center; /* Выравниваем содержимое по горизонтали по центру */
+    align-items: center; /* Выравниваем содержимое по вертикали по центру */
+    height: 100vh; /* Задаем высоту body на 100% от высоты экрана */
+}
+
+/* Стили для заголовка h2 */
+h2 {
+    font-size: 24px; /* Устанавливаем размер шрифта заголовка на 24px */
+    text-align: center; /* Выравниваем текст по центру */
+    color: #333; /* Устанавливаем темно-серый цвет текста */
+    margin-bottom: 20px; /* Добавляем отступ снизу 20px */
+    color: white; /* Переопределяем цвет текста на белый */
+}
+
+/* Стили для формы */
+form {
+    background-color: white; /* Устанавливаем белый фон для формы */
+    padding: 20px; /* Добавляем внутренние отступы по 20px */
+    border-radius: 8px; /* Закругляем углы формы радиусом 8px */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Добавляем тень к форме с размытиями и прозрачностью */
+    width: 300px; /* Устанавливаем ширину формы 300px */
+    margin: 10px; /* Добавляем внешние отступы по 10px */
+    text-align: center; /* Выравниваем содержимое формы по центру */
+}
+
+/* Стили для элементов <label> */
+label {
+    display: block; /* Делаем label блочным элементом, чтобы занимал всю ширину */
+    margin-bottom: 10px; /* Добавляем отступ снизу 10px */
+    color: #555; /* Устанавливаем светло-серый цвет текста */
+    font-size: 16px; /* Устанавливаем размер шрифта на 16px */
+}
+
+/* Стили для элементов <input> */
+input {
+    width: 100%; /* Устанавливаем ширину input на 100% от родительского элемента */
+    padding: 10px; /* Добавляем внутренние отступы по 10px */
+    margin: 8px 0; /* Добавляем внешние отступы по 8px сверху и снизу */
+    border: 1px solid #ddd; /* Устанавливаем светло-серую границу для input */
+    border-radius: 4px; /* Закругляем углы input с радиусом 4px */
+    font-size: 16px; /* Устанавливаем размер шрифта на 16px */
+    box-sizing: border-box; /* Включаем вычисление отступов и границ в размеры элемента */
+}
+
+/* Стили для input при фокусе */
+input:focus {
+    border-color: #0066ff; /* Изменяем цвет границы на синий при фокусе */
+    outline: none; /* Убираем стандартное обводку (outline) при фокусе */
+}
+
+/* Стили для кнопки */
+button {
+    width: 100%; /* Устанавливаем ширину кнопки на 100% от родительского элемента */
+    padding: 12px; /* Добавляем внутренние отступы по 12px */
+    background-color: #0066ff; /* Устанавливаем синий фон для кнопки */
+    border: none; /* Убираем границу у кнопки */
+    border-radius: 4px; /* Закругляем углы кнопки радиусом 4px */
+    color: white; /* Устанавливаем белый цвет текста на кнопке */
+    font-size: 16px; /* Устанавливаем размер шрифта на 16px */
+    cursor: pointer; /* Меняем курсор на указатель при наведении на кнопку */
+    transition: background-color 0.3s ease; /* Плавное изменение фона кнопки при наведении */
+}
+
+/* Стили для кнопки при наведении */
+button:hover {
+    background-color: #004bb5; /* Меняем цвет фона кнопки на более темный синий при наведении */
+}
+
+/* Стили для кнопки при нажатии */
+button:active {
+    background-color: #003d94; /* Еще более темный синий при нажатии на кнопку */
+}
+
+/* Стили для небольших экранов (мобильные устройства) */
+@media (max-width: 600px) {
+    form {
+        width: 90%; /* Устанавливаем ширину формы 90% от ширины экрана на мобильных устройствах */
+    }
+
+    h2 {
+        font-size: 20px; /* Уменьшаем размер шрифта заголовка на 20px на мобильных устройствах */
+    }
+}
+
+
+    </style>
+</head>
+<body class="body-login">
+    <h2>Вход в аккаунт</h2>
+    <form id="login-form">
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" required>
+        <button type="submit">Войти</button>
+    </form>
+
+    <h2>Регистрация</h2>
+    <form id="register-form">
+        <label for="new-username">Имя пользователя:</label>
+        <input type="text" id="new-username" required>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            localStorage.setItem('userName', username);
+            window.location.href = 'index.html'; // Перенаправление на главную страницу
+        });
+
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('new-username').value;
+            localStorage.setItem('userName', username);
+            window.location.href = 'index.html'; // Перенаправление на главную страницу
+        });
+    </script>
+</body>
+</html>

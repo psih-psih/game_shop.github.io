@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Shop</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+/* Стили для заголовка <h2> внутри элемента с классом "instuction" */
+    .instuction h2 {
+    font-size: 36px; /* Устанавливаем размер шрифта заголовка на 48 пикселей */
+    color: white; /* Устанавливаем цвет текста белым */
+    text-transform: uppercase; /* Преобразуем текст в верхний регистр (все буквы будут заглавными) */
+    text-align: center; /* Выравниваем текст по центру */
+}
+
+/* Стили для параграфа <p> внутри элемента с классом "instuction" */
+.instuction p {
+    color: white; /* Устанавливаем цвет текста белым */
+    text-transform: uppercase; /* Преобразуем текст в верхний регистр (все буквы будут заглавными) */
+    font-size: 18px; /* Устанавливаем размер шрифта параграфа на 18 пикселей */
+    text-align: center;
+}
+
+/* Стили для элементов списка <li> внутри элемента с классом "ul" */
+.ul li {
+    color: white; /* Устанавливаем цвет текста всех элементов списка белым */
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html">Game Shop</a>
+        </div>
+
+      <!-- Account section -->
+        <div class="account" id="account-section">
+            <a href="dop-login.html" id="login-btn" class="login-btn">Вход / Регистрация</a>
+            <span id="user-info" style="display: none;">Привет, <span id="user-name"></span> <button style=" background-color: #f39c12;color: white;padding: 10px;font-size: 16px;border: none;cursor: pointer;border-radius: 5px;" onclick="logout()">Выйти</button></span>
+        </div>
+    </header>
+    <div class="instuction">
+
+        <h2>1.Что вы продаёте?</h2>
+        <p>Мы продаем как ключи для пополнения игр, так и внутреигровую валюту.</p>
+        <h2>2. Как происходит покупка валюты?</h2>
+        <p>После оплаты вы пишете в поддержку, и там вам выдают ключ или пополняет вам баланс </p>
+        <h2>3. Как быстро я получу игру после оплаты?</h2>
+        <p>Цифровые товары обычно доставляются в течение 1–5 минут. В редких случаях доставка может занять до 1 часа.</p>
+        <h2>4. Какие способы оплаты доступны?</h2>
+        <p>Мы принимаем оплату банковскими картами, через электронные кошельки (ЮMoney, Qiwi), а также через некоторые криптовалюты (если включено).</p>
+        <h2>Можно ли вернуть игру?</h2>
+        <p>Цифровые товары возврату не подлежат согласно политике возврата. Однако если возникла проблема с ключом или доступом, мы обязательно поможем — просто напишите в поддержку.</p>
+        <h2>6. Что делать, если ключ не работает?</h2>
+        <p>Свяжитесь с нашей службой поддержки, приложите скриншот ошибки и номер заказа — мы проверим и поможем как можно быстрее.</p>
+        <h2>7. Есть ли у вас скидки и акции?</h2>
+        <p>Да! Мы регулярно проводим распродажи, сезонные акции и раздачи бонусов. Следите за новостями на сайте и в наших соцсетях.</p>
+        <h2>8. Нужно ли создавать аккаунт, чтобы купить игру?</h2>
+        <p>Нет, вы можете оформить заказ как гость. Однако зарегистрированные пользователи получают бонусы, быстрее оформляют заказы и первыми узнают о скидках.</p>
+        <h2>9. Как связаться с поддержкой?</h2>
+        <p>Вы можете написать нам через форму обратной связи на сайте, в чат поддержки или в телеграмм ( https://t.me/What_sait_bot )</p>
+    </div>
+            <footer>
+    <section class="sponsors">
+        <h3>Наши спонсоры</h3>
+        <div class="sponsor-promo">
+            <div class="promo-item">
+                <p>промо:GS</p>
+                <img src="https://gamer.market/wp-content/uploads/2025/01/sb-logo-1-1024x344.png" alt="Картинка 1">
+            </div>
+            <div class="promo-item">
+                <p>промо:GS</p>
+                <img src="https://gamer.market/wp-content/uploads/2025/02/aim.market-1-1024x204.png" alt="Картинка 2">
+            </div>
+        </div>
+        <br>
+    </section>
+    <div class="footer">
+        <p style="text-align: center;">&copy; 2025 Game Shop. Все <a href="dop-instruction.html">права защищены</a>.</p>
+        <p style="text-align:center;"> Так же у нас есть поддержка - <a href="https://t.me/What_sait_bot">в тегеграмм</a> | <a href="dop-FAQ.html">FAQ<a/> </p>
+    </div>            </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
